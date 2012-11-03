@@ -1,0 +1,10 @@
+.beFieldsetFilter {
+	margin: 0 18px;
+	padding: 5px;
+	border: 1px solid #bbb;
+	background: #f3f3f3;
+}
+
+.beFieldsetFilter .search {
+	width: 35%;
+}

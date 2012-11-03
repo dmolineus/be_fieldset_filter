@@ -1,0 +1,7 @@
+<div class="beFieldsetFilter">
+<form action="#" post="post">
+<input type="text" placeholder="<?php echo $GLOBALS['TL_LANG']['MSC']['beFieldsetFilterLabel']; ?>" class="search">
+
+</form>
+</div>
+
