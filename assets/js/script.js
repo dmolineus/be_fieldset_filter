@@ -23,6 +23,9 @@ window.addEvent('domready', function() {
 					box.addClass('collapsed');
 				}
 
+				// fire event for supporting M17StickyFooter
+				// if m17 StickyFooter isnt installed nothing should happen
+				box.fireEvent('click:relay(legend)');
 			});
 
 		});
