@@ -1,17 +1,31 @@
 window.addEvent('domready', function() {
 	// add clear method to clear button 
 	$$('.beFieldsetFilter .clear').addEvent('click', function(event) {
-		event.stop();
+		// somehow not everytime a event object is there...		
+		if(event) {
+			event.stop();
+		}
 		$$('.beFieldsetFilter .search').set('value', '');
 		// fire keyup event to display elements
 		$$('.beFieldsetFilter .search').fireEvent('keyup');
 	});
 
+	// trigger clear if escape key is pressed
+	$$('.beFieldsetFilter .search').addEvent('keydown', function(event) {
+		// somehow not everytime a event object is there...
+		// so keydown:keys(esc) would throw an exception sometimes
+		if(event && event.key == 'esc') {
+			$$('.beFieldsetFilter .clear').fireEvent('click');
+		}
+	});
+
+	// filter after inserting search string
 	$$('.beFieldsetFilter .search').addEvent('keyup', function() {
 		var el = $$(this);
 		var val = new String(el.get('value'));
 		var hideFields = true;
 		var clearBtn = $$('.beFieldsetFilter .clear');
+
 
 		// only show clear button if search box has text
 		if(val.length > 0) {
