@@ -1,7 +1,7 @@
-<div class="beFieldsetFilter">
+<div class="beFieldsetFilter tl_panel">
 <form action="#" post="post">
 <input type="text" placeholder="<?php echo $GLOBALS['TL_LANG']['MSC']['beFieldsetFilterLabel']; ?>" class="search">
-
+<a href="" class="clear hidden"></a>
 </form>
 </div>
 

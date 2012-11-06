@@ -1,10 +1,26 @@
-.beFieldsetFilter {
-	margin: 0 18px;
-	padding: 5px;
-	border: 1px solid #bbb;
-	background: #f3f3f3;
+.hidden { 
+	display: none !important; 
 }
 
-.beFieldsetFilter .search {
-	width: 35%;
+.beFieldsetFilter {
+	position: relative;
+}
+
+.beFieldsetFilter.tl_panel .search { 
+	width: 35%; 
+}
+
+.beFieldsetFilter .clear { 
+	background: url('/system/themes/default/images/close.gif') no-repeat; 
+	width: 16px; 
+	height: 16px; 
+	display: block;
+	position: absolute;
+	right: 10px;
+	top: 14px;
+	opacity: 0.6;
+}
+
+.beFieldsetFilter .clear:hover {
+		opacity: 1;
 }

@@ -1,7 +1,5 @@
 <?php
 
-
-
 class BackendFieldsetFilter extends Backend
 {
 
@@ -17,7 +15,13 @@ class BackendFieldsetFilter extends Backend
 		{
 			// inject fieldset filter
 			$inject = new BackendTemplate('be_fieldset_filter');
-			$strContent = str_replace('</h2>', '</h2>' . $inject->parse(), $strContent);
+
+			$strContent = preg_replace(
+				'/<h1(\s*)class="main_headline">(.*)<\/h1>/U',
+				"$0" . $inject->parse(),
+				$strContent
+			);
+			//$strContent = str_replace('</h1>', '</h1>' . $inject->parse(), $strContent);
 		}
 
 		return $strContent;
