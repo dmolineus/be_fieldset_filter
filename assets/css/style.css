@@ -1,4 +1,4 @@
-.hidden { 
+.hidden, #container fieldset.beFieldsetOpen div.hidden { 
 	display: none !important; 
 }
 
@@ -23,4 +23,32 @@
 
 .beFieldsetFilter .clear:hover {
 		opacity: 1;
+}
+
+/* make sure beFieldCollapsed work like usual collapsed element */
+#container fieldset.beFieldsetCollapsed {
+	padding-top: 0;
+	padding-bottom: 12px;
+	margin-bottom: 0;
+}
+
+#container fieldset.beFieldsetOpen {
+	padding: 12px 0 26px;
+	padding-top: 6px;
+}
+
+#container fieldset.beFieldsetCollapsed > div {
+	display: none!important;
+}
+
+#container fieldset.beFieldsetOpen div {
+	display: block!important;
+}
+
+#container fieldset.beFieldsetCollapsed > legend {
+	background: url('/system/themes/default/images/palCollapsed.gif') left center no-repeat;
+}
+
+#container fieldset.beFieldsetOpen > legend {
+	background: url('/system/themes/default/images/palOpen.gif') left center no-repeat;
 }
