@@ -100,9 +100,7 @@ function BackendFieldsetFilter()
 		if(val.length == 0) {
 			fieldSets.removeClass('beFieldsetCollapsed');
 			fieldSets.removeClass('beFieldsetOpen');
-			fieldSets.each( function(fieldSet){
-				self.removeClassFromElements('hidden');
-			});
+			self.removeClassFromElements('hidden');
 		}
 
 		// stop processing if search string is too shoort
