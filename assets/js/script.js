@@ -60,7 +60,7 @@ function BackendFieldsetFilter()
 			var fieldSet = this.getParent();
 			fieldSet.removeClass('beFieldsetCollapsed');
 			fieldSet.removeClass('beFieldsetOpen');
-			self.removeClassFromElements('hidden');
+			self.removeClassFromElements(fieldSet, 'hidden');
 		});
 
 		// handle search requests
