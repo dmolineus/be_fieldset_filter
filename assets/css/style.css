@@ -1,4 +1,4 @@
-.hidden, #container fieldset.beFieldsetOpen div.hidden { 
+.beFieldsetHidden, #container fieldset.beFieldsetOpen div.hidden { 
 	display: none !important; 
 }
 

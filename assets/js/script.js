@@ -53,7 +53,7 @@ function BackendFieldsetFilter()
 			var fieldSet = this.getParent();
 			fieldSet.removeClass('beFieldsetCollapsed');
 			fieldSet.removeClass('beFieldsetOpen');
-			self.removeClassFromElements(fieldSet, 'hidden');
+			self.removeClassFromElements(fieldSet, 'beFieldsetHidden');
 		});
 
 		// handle search requests
@@ -86,14 +86,14 @@ function BackendFieldsetFilter()
 		var fieldSets = $$('.tl_formbody_edit > fieldset');
 
 		// only show clear button if search box has text
-		self.setClassConditional(clearButton, 'hidden', val.length == 0);
+		self.setClassConditional(clearButton, 'beFieldsetHidden', val.length == 0);
 
 		// clear if nothing is searched 
 		// remove all added classes
 		if(val.length == 0) {
 			fieldSets.removeClass('beFieldsetCollapsed');
 			fieldSets.removeClass('beFieldsetOpen');
-			self.removeClassFromElements('hidden');
+			self.removeClassFromElements('beFieldsetHidden');
 		}
 
 		// stop processing if search string is too short
@@ -115,7 +115,7 @@ function BackendFieldsetFilter()
 
 				if(text.test(val, 'i')) {
 					self.switchClasses(box, 'beFieldsetCollapsed', 'beFieldsetOpen');
-					self.removeClassFromElements(box, 'hidden');
+					self.removeClassFromElements(box, 'beFieldsetHidden');
 					showBox = true;
 				}
 			});
@@ -130,7 +130,7 @@ function BackendFieldsetFilter()
 						added = true;						
 					}
 
-					self.setClassConditional(label.getParent().getParent(), 'hidden', !matched);
+					self.setClassConditional(label.getParent().getParent(), 'beFieldsetHidden', !matched);
 				});
 
 				// change box toggling view after go through all elements
