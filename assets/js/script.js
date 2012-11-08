@@ -12,13 +12,6 @@ function BackendFieldsetFilter()
 	var clearButton = $$(widgetIdentifer + ' .clear');
 
 	/**
-	 * enable hiding of single fields
-	 * @var bool
-	 */
-	var hideFields = true;
-
-
-	/**
 	 * set min length before search request is handled
 	 * @var int
 	 */
@@ -129,23 +122,15 @@ function BackendFieldsetFilter()
 
 			// check every element and hide elements if nessecary
 			if(!showBox) {
-				box.getElements('div > label, h3 > label, fieldset > legend').each(function(label) {
-			
+				box.getElements('div > label, h3 > label, fieldset > legend').each(function(label) {			
 					var text = label.get('text');
+					var matched = text.test(val, 'i');
 
-					if(text.test(val, 'i')) {
-						added = true;
-
-						if(hideFields) {
-							label.getParent().getParent().removeClass('hidden');
-						}
+					if(matched) {
+						added = true;						
 					}
-					else {
 
-						if(hideFields) {
-							label.getParent().getParent().addClass('hidden');
-						}
-					}
+					self.setClassConditional(label.getParent().getParent(), 'hidden', !matched);
 				});
 
 				// change box toggling view after go through all elements
