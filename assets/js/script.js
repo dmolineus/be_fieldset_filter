@@ -103,33 +103,33 @@ function BackendFieldsetFilter()
 			self.removeClassFromElements('hidden');
 		}
 
-		// stop processing if search string is too shoort
+		// stop processing if search string is too short
 		if(val.length < minLength) {
 			return;
 		}
 
 		// go through each fieldset
 		fieldSets.each(function(box) {			
+			// true if an element in a box is displayed
 			var added = false;
-			var legend = box.getChildren('legend');
+			// true if whole box is displayed because of match in the titel of the box
 			var showBox = false;
+			var legend = box.getChildren('legend');
 
 			// lengend match so show every legend element 
-			if(legend) {
-				legend.each( function(legend) {
-					var text = legend.get('text');
+			legend.each( function(legend) {
+				var text = legend.get('text');
 
-					if(text.test(val, 'i')) {
-						self.switchClasses(box, 'beFieldsetCollapsed', 'beFieldsetOpen');
-						self.removeClassFromElements(box, 'hidden');
-						showBox = true;
-					}
-				});
-			}
+				if(text.test(val, 'i')) {
+					self.switchClasses(box, 'beFieldsetCollapsed', 'beFieldsetOpen');
+					self.removeClassFromElements(box, 'hidden');
+					showBox = true;
+				}
+			});
 
 			// check every element and hide elements if nessecary
 			if(!showBox) {
-				box.getElements('div > label, h3 > label, fieldset > legend').each( function(label) {
+				box.getElements('div > label, h3 > label, fieldset > legend').each(function(label) {
 			
 					var text = label.get('text');
 
@@ -137,7 +137,7 @@ function BackendFieldsetFilter()
 						self.switchClasses(box, 'beFieldsetCollapsed', 'beFieldsetOpen');
 						added = true;
 
-						if( hideFields) {
+						if(hideFields) {
 							label.getParent().getParent().removeClass('hidden');
 						}
 					}
