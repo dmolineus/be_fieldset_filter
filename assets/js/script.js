@@ -134,7 +134,6 @@ function BackendFieldsetFilter()
 					var text = label.get('text');
 
 					if(text.test(val, 'i')) {
-						self.switchClasses(box, 'beFieldsetCollapsed', 'beFieldsetOpen');
 						added = true;
 
 						if(hideFields) {
@@ -142,15 +141,16 @@ function BackendFieldsetFilter()
 						}
 					}
 					else {
-						if(added == false) {
-							self.switchClasses(box, 'beFieldsetOpen', 'beFieldsetCollapsed');
-						}
 
 						if(hideFields) {
 							label.getParent().getParent().addClass('hidden');
 						}
 					}
 				});
+
+				// change box toggling view after go through all elements
+				self.setClassConditional(box, 'beFieldsetOpen', added);
+				self.setClassConditional(box, 'beFieldsetCollapsed', !added);
 
 				// fire event for supporting M17StickyFooter
 				// if m17 StickyFooter isn't installed nothing should happen
