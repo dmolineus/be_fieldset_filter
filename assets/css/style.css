@@ -1,4 +1,4 @@
-.beFieldsetHidden, #container fieldset.beFieldsetOpen div.hidden { 
+.beFieldsetHidden, #container fieldset.beFieldsetOpen div.beFieldsetHidden { 
 	display: none !important; 
 }
 
@@ -11,7 +11,7 @@
 }
 
 .beFieldsetFilter .clear { 
-	background: url('/system/themes/default/images/close.gif') no-repeat; 
+	background: url('../../../../themes/default/images/close.gif') no-repeat; 
 	width: 16px; 
 	height: 16px; 
 	display: block;
@@ -46,9 +46,9 @@
 }
 
 #container fieldset.beFieldsetCollapsed > legend {
-	background: url('/system/themes/default/images/palCollapsed.gif') left center no-repeat;
+	background: url('../../../../themes/default/images/palCollapsed.gif') left center no-repeat;
 }
 
 #container fieldset.beFieldsetOpen > legend {
-	background: url('/system/themes/default/images/palOpen.gif') left center no-repeat;
+	background: url('../../../../themes/default/images/palOpen.gif') left center no-repeat;
 }
