@@ -50,10 +50,7 @@ function BackendFieldsetFilter()
 
 		// remove classes if legend is toggled
 		$$('fieldset legend').addEvent('click', function(event) {
-			var fieldSet = this.getParent();
-			fieldSet.removeClass('beFieldsetCollapsed');
-			fieldSet.removeClass('beFieldsetOpen');
-			self.removeClassFromElements(fieldSet, 'beFieldsetHidden');
+			self.clear();
 		});
 
 		// handle search requests

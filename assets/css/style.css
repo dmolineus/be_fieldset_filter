@@ -50,9 +50,9 @@
 }
 
 #container fieldset.beFieldsetCollapsed > legend {
-	background: url('../../../../themes/default/images/palCollapsed.gif') left center no-repeat;
+	background: url('../images/palSearch.gif') left center no-repeat;
 }
 
 #container fieldset.beFieldsetOpen > legend {
-	background: url('../../../../themes/default/images/palOpen.gif') left center no-repeat;
+	background: url('../images/palSearch.gif') left center no-repeat;
 }
