@@ -119,28 +119,37 @@ function BackendFieldsetFilter()
 					showBox = true;
 				}
 			});
+			
+			var affected = 0;
 
 			// check every element and hide elements if nessecary
-			if(!showBox) {
-				box.getElements('div > label, h3 > label, fieldset > legend').each(function(label) {			
-					var text = label.get('text');
-					var matched = text.test(val, 'i');
+			box.getElements('div > label, h3 > label, fieldset > legend').each(function(label) {			
+				var text = label.get('text');
+				var matched = text.test(val, 'i');
 
-					if(matched) {
-						added = true;						
-					}
+				if(matched) {
+					added = true;
+					affected++						
+				}
 
-					self.setClassConditional(label.getParent().getParent(), 'beFieldsetHidden', !matched);
-				});
+				self.setClassConditional(label.getParent().getParent(), 'beFieldsetHidden', !matched);
+			});
 
-				// change box toggling view after go through all elements
-				self.setClassConditional(box, 'beFieldsetOpen', added);
-				self.setClassConditional(box, 'beFieldsetCollapsed', !added);
-
-				// fire event for supporting M17StickyFooter
-				// if m17 StickyFooter isn't installed nothing should happen
-				box.fireEvent('click:relay(legend)');
+			// change box toggling view after go through all elements
+			self.setClassConditional(box, 'beFieldsetOpen', added);
+			self.setClassConditional(box, 'beFieldsetCollapsed', !added);															
+			
+			if(affected == 0)
+			{
+				box.addClass('beFieldsetHidden');
 			}
+			else {
+				box.removeClass('beFieldsetHidden');
+			}
+			
+			// fire event for supporting M17StickyFooter
+			// if m17 StickyFooter isn't installed nothing should happen
+			box.fireEvent('click:relay(legend)');
 
 		});
 	}		
