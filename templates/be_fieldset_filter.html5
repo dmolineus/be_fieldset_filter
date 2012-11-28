@@ -1,7 +1,7 @@
-<div class="beFieldsetFilter tl_panel">
-<form action="" post="post">
-<input type="text" placeholder="<?php echo $GLOBALS['TL_LANG']['MSC']['beFieldsetFilterLabel']; ?>" class="search">
+<form action="" class="tl_form" method="post">
+<div class="tl_panel">
+<div class="tl_search tl_subpanel beFieldsetFilter">
+<strong><?php echo $GLOBALS['TL_LANG']['MSC']['beFieldsetFilterLabel']; ?></strong>
+<input type="text" placeholder="<?php echo $GLOBALS['TL_LANG']['MSC']['beFieldsetFilterLabel']; ?>" class="search tl_text">
 <a href="" class="clear hidden"></a>
-</form>
-</div>
-
+</div></div></form>

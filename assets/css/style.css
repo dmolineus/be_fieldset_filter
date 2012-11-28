@@ -2,11 +2,15 @@
 	display: none !important; 
 }
 
+.beFieldsetFilter.tl_subpanel {
+	float: none;
+}
+
 .beFieldsetFilter {
 	position: relative;
 }
 
-.beFieldsetFilter.tl_panel .search { 
+.beFieldsetFilter.tl_search .search { 
 	width: 35%; 
 }
 
@@ -16,8 +20,8 @@
 	height: 16px; 
 	display: block;
 	position: absolute;
-	right: 10px;
-	top: 14px;
+	right: 2px;
+	top: 8px;
 	opacity: 0.6;
 }
 
