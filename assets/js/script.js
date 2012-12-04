@@ -101,7 +101,6 @@ function BackendFieldsetFilter()
 		// go through each fieldset
 		fieldSets.each(function(box) {			
 			// true if an element in a box is displayed
-			var added = false;
 			// true if whole box is displayed because of match in the titel of the box
 			var showBox = false;
 			var legend = box.getChildren('legend');
@@ -117,6 +116,14 @@ function BackendFieldsetFilter()
 				}
 			});
 			
+			if(showBox) 
+			{
+				// fire event for supporting M17StickyFooter
+				// if m17 StickyFooter isn't installed nothing should happen
+				box.fireEvent('click:relay(legend)');				
+				return;
+			}
+			
 			var affected = 0;
 
 			// check every element and hide elements if nessecary
@@ -125,7 +132,7 @@ function BackendFieldsetFilter()
 				var matched = text.test(val, 'i');
 
 				if(matched) {
-					added = true;
+					showBox = true;
 					affected++						
 				}
 
@@ -133,8 +140,8 @@ function BackendFieldsetFilter()
 			});
 
 			// change box toggling view after go through all elements
-			self.setClassConditional(box, 'beFieldsetOpen', added);
-			self.setClassConditional(box, 'beFieldsetCollapsed', !added);															
+			self.setClassConditional(box, 'beFieldsetOpen', showBox);
+			self.setClassConditional(box, 'beFieldsetCollapsed', !showBox);															
 			
 			if(affected == 0)
 			{
@@ -147,7 +154,6 @@ function BackendFieldsetFilter()
 			// fire event for supporting M17StickyFooter
 			// if m17 StickyFooter isn't installed nothing should happen
 			box.fireEvent('click:relay(legend)');
-
 		});
 	}		
 
